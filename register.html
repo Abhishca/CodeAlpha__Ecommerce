@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">🛒 MyStore</div>
+</div>
+
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Create Account</h2>
+
+    <input id="name" placeholder="Full Name">
+    <input id="email" placeholder="Email">
+
+    <div class="password-box">
+      <input id="password" type="password" placeholder="Password">
+      <span onclick="togglePassword()">👁️</span>
+    </div>
+
+    <p id="error" class="error"></p>
+
+    <button onclick="register()">Register</button>
+
+    <p>Already have an account? <a href="login.html">Sign in</a></p>
+  </div>
+</div>
+
+<script>
+function togglePassword() {
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
+}
+
+function validateEmail(email) {
+  return /\S+@\S+\.\S+/.test(email);
+}
+
+function register() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const error = document.getElementById("error");
+
+  if (!name || !email || !password) {
+    error.innerText = "All fields are required";
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    error.innerText = "Invalid email format";
+    return;
+  }
+
+  if (password.length < 6) {
+    error.innerText = "Password must be at least 6 characters";
+    return;
+  }
+
+  fetch("http://localhost:5000/api/users/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ name, email, password })
+  })
+  .then(() => {
+    window.location.href = "index.html";
+  })
+  .catch(() => {
+    error.innerText = "Registration failed";
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">🛒 MyStore</div>
+  <a href="index.html">Home</a>
+</nav>
+
+<div class="product-page">
+  <h1 id="name"></h1>
+  <img id="image"/>
+  <p id="description"></p>
+  <h2 id="price"></h2>
+  <button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const productId = params.get("id");
+
+fetch("http://localhost:5000/api/products")
+  .then(res => res.json())
+  .then(products => {
+    const p = products.find(x => x._id === productId);
+
+    document.getElementById("name").innerText = p.name;
+    document.getElementById("image").src = p.image;
+    document.getElementById("description").innerText = p.description;
+    document.getElementById("price").innerText = "₹" + p.price;
+  });
+
+function addToCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(productId);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added to cart");
+}
+</script>
+
+</body>
+</html>

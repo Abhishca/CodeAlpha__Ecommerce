@@ -1,0 +1,183 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+/* Navbar */
+/* NAVBAR */
+.navbar {
+  background: #131921;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* SEARCH BAR */
+#search {
+  width: 40%;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* NAV LINKS */
+.nav-links a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+/* PAGE TITLE */
+h1 {
+  margin: 20px;
+}
+
+/* GRID FIX */
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  height: 100%; /* ensures equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE FIX (MOST IMPORTANT) */
+.card img {
+  width: 100%;
+  height: 200px;       /* fixed height */
+  object-fit: cover;   /* keeps image ratio, crops nicely */
+  border-radius: 8px;
+}
+
+/* TITLE */
+.card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  min-height: 40px; /* keeps titles aligned */
+}
+
+/* PRICE */
+.card p {
+  color: #b12704;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* BUTTON FIX */
+.card button {
+  margin-top: auto;
+}
+
+button:hover {
+  background: #f7ca00;
+}
+/* PAGE TITLE */
+.page-title {
+  margin: 20px;
+}
+
+/* CART LAYOUT */
+.cart-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CART ITEMS */
+#cartItems {
+  flex: 2;
+}
+
+.cart-item {
+  background: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* SUMMARY BOX */
+.cart-summary {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+}
+
+/* AUTH (LOGIN/REGISTER) */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.auth-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.auth-card button {
+  width: 100%;
+}
+/* PASSWORD FIELD */
+.password-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.password-box input {
+  border: none;
+  flex: 1;
+  outline: none;
+}
+
+.password-box span {
+  cursor: pointer;
+}
+
+/* ERROR TEXT */
+.error {
+  color: red;
+  font-size: 14px;
+  margin: 10px 0;
+}
